@@ -38,7 +38,9 @@ run.phyml.bootstrap <- function(phyml_path, file_name, subs_model, n_reps, n_pro
     cl <- makeCluster(n_proc)
     registerDoParallel(cl)
 
-    reps <- foreach(x = 1:n_reps, .packages = 'ape') %dopar% get_bootstrap_replicate(phyml_path, nuc_data = nuc_data, rep_name = paste0('rep', x), subs_model = subs_model)
+    reps <- foreach(x = 1:n_reps, .packages = 'ape') %dopar% get_bootstrap_replicate(phyml_path, nuc_data = nuc_data, rep_name = paste0(file_name, '_rep', x), subs_model = subs_model)
+
+    stopCluster(cl)
 
     rbind_list <- function(data_list){
     if(length(data_list) == 1){
