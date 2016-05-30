@@ -7,14 +7,15 @@ run.mb <- function(sdata, format = "phyllip", temp_name, model = "GTR+G", topofi
 		d <- read.dna(sdata)
 		fileName <- gsub("fasta", "phy", sdata)
 	} else if(format == "DNAbin"){
+		d <- sdata
 		fileName <- temp_name
 	}
 	
 	### Block 1. DNA data.
 	if(ss == F){
-	      b1 <- write.nexus.data(as.list(d), file = paste0(file.name, ".nex"))
+	      b1 <- write.nexus.data(as.list(d), file = paste0(fileName, ".nex"))
 	} else {
-	      b1 <- write.nexus.data(as.list(d), file = paste0(file.name, "_ss.nex"))
+	      b1 <- write.nexus.data(as.list(d), file = paste0(fileName, "_ss.nex"))
 	}
 
 	### Block 5. Topology.
