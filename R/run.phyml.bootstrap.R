@@ -42,6 +42,13 @@ run.phyml.bootstrap <- function(phyml_path, file_name, subs_model, n_reps, n_pro
 
     stopCluster(cl)
 
+
+# reps <- list()
+# for(x in 1:n_reps){
+#       reps[[x]] <- get_bootstrap_replicate(phyml_path, nuc_data = nuc_data, paste0(file_name, '_rep', x), subs_model = subs_model)
+# }
+
+
     rbind_list <- function(data_list){
     if(length(data_list) == 1){
         data_list
