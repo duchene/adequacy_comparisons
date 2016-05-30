@@ -33,7 +33,7 @@ run.mb <- function(sdata, format = "phyllip", temp_name, model = "GTR+G", topofi
 	if(model == "GTR+G"){
 		b2 <- "begin mrbayes;
 		lset nst=6;
-		lset rates=gamma;
+		lset rates=Invgamma;
 		lset ngammacat=4;"
 	} else if(model == "JC"){
 		b2 <- "begin mrbayes;
@@ -64,15 +64,9 @@ run.mb <- function(sdata, format = "phyllip", temp_name, model = "GTR+G", topofi
 	if(ss == F){
 	      cat(complete.nex ,file= paste0(fileName, ".nex"), append=TRUE)
 	      system(paste(mbPath, paste0(fileName, ".nex")))
-	      if(mbPath == NULL){
-	      		system(paste("mb", paste0(fileName, ".nex")))
-	      }
 	} else {
 	      cat(complete.nex ,file= paste0(fileName, "_ss.nex"), append=TRUE)
 	      system(paste(mbPath, paste0(fileName, "_ss.nex")))
-	      if(mbPath == NULL){
-	                      system(paste("mb", paste0(fileName, "_ss.nex")))
-              }
 	}
 
 }
