@@ -1,4 +1,4 @@
-run.mb <- function(sdata, format = "phyllip", temp_name, model = "GTR+G", topofix = F, ss = F, mbPath = "~/Downloads/MrBayes/mb"){
+run.mb <- function(sdata, format = "phyllip", temp_name, model = "GTR+G", topofix = F, ss = F, mbPath = "local"){
 	
 	if(format == "fasta"){
 		d <- read.dna(sdata, format = "fasta")
@@ -63,16 +63,20 @@ run.mb <- function(sdata, format = "phyllip", temp_name, model = "GTR+G", topofi
 	
 	if(ss == F){
 	      cat(complete.nex ,file= paste0(fileName, ".nex"), append=TRUE)
-	      system(paste(mbPath, paste0(fileName, ".nex")))
-	      if(mbPath == NULL){
+	      
+	      if(mbPath == "local"){
 	      		system(paste("mb", paste0(fileName, ".nex")))
+	      } else {
+			system(paste(mbPath, paste0(fileName, ".nex")))
 	      }
 	} else {
 	      cat(complete.nex ,file= paste0(fileName, "_ss.nex"), append=TRUE)
-	      system(paste(mbPath, paste0(fileName, "_ss.nex")))
-	      if(mbPath == NULL){
+	      
+	      if(mbPath == "local"){
 	                      system(paste("mb", paste0(fileName, "_ss.nex")))
-              }
+              } else {
+	      		      system(paste(mbPath, paste0(fileName, "_ss.nex")))
+	      }
 	}
 
 }
