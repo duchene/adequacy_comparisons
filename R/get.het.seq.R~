@@ -8,7 +8,7 @@ get.het.seq <- function(ntax = 36, exp.rate = 0.01, backbone.ntax = 10, trlen = 
     
     tr2 <- rtree(ntax - backbone.ntax)
     tr2$edge.length <- rexp(length(tr2$edge.length), exp.rate)
-    s2 <- get.seq(tr2, model = "gtr.g", l = slen, basef = basefreq.offshoot, rootseq =  as.character(as.DNAbin(s1)[1, ]))
+    s2 <- get.seq(tr2, model = "gtr.g", l = slen, basefreq = basefreq.offshoot, rootseq =  as.character(as.DNAbin(s1)[1, ]))
 
     tr3 <- bind.tree(tr1, tr2, where = 1)
     tr3$tip.label <- paste0('t', 1:length(tr3$tip.label))
