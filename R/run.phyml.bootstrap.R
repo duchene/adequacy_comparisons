@@ -4,7 +4,7 @@ run.phyml.bootstrap <- function(phyml_path, file_name, subs_model, n_reps, n_pro
     require(doParallel)
     require(foreach)
 
-    nuc_data <- as.matrix(read.dna(file_name, format = 'sequential'))
+    nuc_data <- as.matrix(read.dna(file_name))
     if(!is.matrix(nuc_data)) stop('data not read as a matrix. Check that the format is fasta and that it consists of nucleotides')
 
     run_phyml <- function(phymlPath, data_name, model='GTR+G'){
