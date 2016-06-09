@@ -79,3 +79,18 @@ run.phyml.bootstrap <- function(phyml_path, file_name, subs_model, n_reps, n_pro
 #n_proc <- 5
 #t1 <- run.phyml.bootstrap(phyml_path, 'test_true_data.phy', subs_model = 'GTR+G', n_reps = 5, n_proc = 5)
 
+args <- commandArgs(trailingOnly = TRUE)
+print(args)
+phyml_path <- args[1]
+input_file <- args[2]
+
+if(length(grep('gtrg', input_file)) > 0){
+   subs_model <- 'GTR+G'
+ }else if(length(grep('jc', input_file)) > 0){
+   subs_model <- 'JC'     
+}
+
+t1 <- run.phyml.bootstrap(phyml_path, input_file, subs_model = subs_model, n_reps = 100, n_proc = 5)
+
+write.table(t1, file = gsub('[.]phy', '.cvs', input_file), sep = ',', row.names = F)
+
