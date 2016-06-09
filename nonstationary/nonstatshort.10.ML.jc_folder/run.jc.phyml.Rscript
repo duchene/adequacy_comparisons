@@ -1,0 +1,5 @@
+library(phangorn)
+source("../../R/run.phyml.R")
+dat <- grep("[.]ML[.]", dir(), value = T)
+res <- run.phyml(dat, model = "JC")
+save(res, file = gsub("[.]phy", "res.Rdata", dat))

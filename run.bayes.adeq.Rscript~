@@ -1,0 +1,18 @@
+curdir <- getwd()
+setwd("../subst_func/")
+for(i in dir()) source(i)
+setwd(curdir)
+fols <- grep("bayes", dir(), value = T)
+fols <- grep("folder", fols, value = T)
+
+for(i in 1:length(fols)){
+      setwd(fols[i])
+      trs <- readLines("analysis.nex.t")
+      if(tail(trs, 1) != "end;"){
+      		   trs <- c(trs, "end;")
+		   writeLines(trs, con = "analysis.nex.t")
+      }
+      adeqres <- adeq("analysis.nex.t", "analysis.nex.p", grep(".phy.nex", dir(), value = T), Nsim = 100)
+      save(adeqres, file = "")
+      setwd("..")
+}

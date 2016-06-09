@@ -1,0 +1,4 @@
+library(phangorn)
+source("../../R/run.mb.R")
+phydat <- grep("[.]bayes[.]", dir(), value = T)
+run.mb(phydat)
