@@ -35,18 +35,18 @@ run.phyml.bootstrap <- function(phyml_path, file_name, subs_model, n_reps, n_pro
         return(out)
     }
 
-    cl <- makeCluster(n_proc)
-    registerDoParallel(cl)
+#    cl <- makeCluster(n_proc)
+#    registerDoParallel(cl)
 
-    reps <- foreach(x = 1:n_reps, .packages = 'ape') %dopar% get_bootstrap_replicate(phyml_path, nuc_data = nuc_data, rep_name = paste0(file_name, '_rep', x), subs_model = subs_model)
+#    reps <- foreach(x = 1:n_reps, .packages = 'ape') %dopar% get_bootstrap_replicate(phyml_path, nuc_data = nuc_data, rep_name = paste0(file_name, '_rep', x), subs_model = subs_model)
 
-    stopCluster(cl)
+#    stopCluster(cl)
 
 
-# reps <- list()
-# for(x in 1:n_reps){
-#       reps[[x]] <- get_bootstrap_replicate(phyml_path, nuc_data = nuc_data, paste0(file_name, '_rep', x), subs_model = subs_model)
-# }
+ reps <- list()
+ for(x in 1:n_reps){
+       reps[[x]] <- get_bootstrap_replicate(phyml_path, nuc_data = nuc_data, paste0(file_name, '_rep', x), subs_model = subs_model)
+ }
 
 
     rbind_list <- function(data_list){
@@ -79,5 +79,18 @@ run.phyml.bootstrap <- function(phyml_path, file_name, subs_model, n_reps, n_pro
 #n_proc <- 5
 #t1 <- run.phyml.bootstrap(phyml_path, 'test_true_data.phy', subs_model = 'GTR+G', n_reps = 5, n_proc = 5)
 
+args <- commandArgs(trailingOnly = TRUE)
+print(args)
+phyml_path <- args[1]
+input_file <- args[2]
 
+if(length(grep('gtrg', input_file)) > 0){
+   subs_model <- 'GTR+G'
+ }else if(length(grep('jc', input_file)) > 0){
+   subs_model <- 'JC'     
+}
+
+t1 <- run.phyml.bootstrap(phyml_path, input_file, subs_model = subs_model, n_reps = 100, n_proc = 5)
+
+write.table(t1, file = gsub('[.]phy', '.cvs', input_file), sep = ',', row.names = F)
 
