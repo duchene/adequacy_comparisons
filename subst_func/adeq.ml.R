@@ -6,10 +6,15 @@ adeq.ml <- function(trees.file, log.file, empdat.file, true.topo, Nsim = 100, sa
      seqlen <- ncol(as.matrix(as.DNAbin(empdat)))
      print(paste("sequence length is", seqlen))
      sims <- make.ml.als(trees.file, log.file, Nsim, seqlen, savetrees)
-     if(missing(true.topo)){
-	sims <- make.ml.tr(sims, trees.file, empdat)
+     if(length(grep("jc", trees.file, value = T)) > 0){ 
+     	model <- "jc69"
      } else {
-     	sims <- make.ml.tr(sims, trees.file, empdat, true.topo)
+        model <- "gtr"
+     }
+     if(missing(true.topo)){
+	sims <- make.ml.tr(sims, trees.file, log.file, empdat, model = model)
+     } else {
+     	sims <- make.ml.tr(sims, trees.file, empdat, truetr = true.topo, model = model)
      }     
      return(sims)
 }
