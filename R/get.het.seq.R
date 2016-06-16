@@ -1,7 +1,7 @@
 # This function requires the function in this repository get.seq.
 require(phangorn)
 
-get.het.seq <- function(ntax = 36, exp.rate = 0.01, backbone.ntax = 10, trlen = 3, backbone.trlen = 1.5, basefreq.offshoot = c(0.4, 0.1, 0.1, 0.4), slen = 1000){
+get.het.seq <- function(ntax = 10, exp.rate = 5, backbone.ntax = 10, trlen = 3, backbone.trlen = 1.5, basefreq.offshoot = c(0.45, 0.05, 0.05, 0.45), slen = 1000){
     tr1 <- rtree(backbone.ntax)
     tr1$edge.length <- rexp(length(tr1$edge.length), exp.rate)
     s1 <- get.seq(tr1, model = "gtr.g", l = slen)
