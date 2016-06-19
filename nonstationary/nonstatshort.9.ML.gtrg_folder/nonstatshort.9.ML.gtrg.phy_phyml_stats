@@ -11,44 +11,44 @@
 . Initial tree: 			BioNJ
 . Model of nucleotides substitution: 	GTR
 . Number of taxa: 			19
-. Log-likelihood: 			-1612.24390
-. Unconstrained likelihood: 		-1561.16510
-. Parsimony: 				29
-. Tree size: 				0.02916
+. Log-likelihood: 			-6058.85331
+. Unconstrained likelihood: 		-4536.06063
+. Parsimony: 				1263
+. Tree size: 				8.46121
 . Discrete gamma model: 		Yes
   - Number of classes: 			4
-  - Gamma shape parameter: 		0.365
-  - Relative rate in class 1: 		0.01197 [freq=0.250000] 		
-  - Relative rate in class 2: 		0.15497 [freq=0.250000] 		
-  - Relative rate in class 3: 		0.69013 [freq=0.250000] 		
-  - Relative rate in class 4: 		3.14292 [freq=0.250000] 		
+  - Gamma shape parameter: 		0.566
+  - Relative rate in class 1: 		0.04627 [freq=0.250000] 		
+  - Relative rate in class 2: 		0.29311 [freq=0.250000] 		
+  - Relative rate in class 3: 		0.86320 [freq=0.250000] 		
+  - Relative rate in class 4: 		2.79742 [freq=0.250000] 		
 . Nucleotides frequencies:
-  - f(A)= 0.24437
-  - f(C)= 0.29663
-  - f(G)= 0.23700
-  - f(T)= 0.22200
+  - f(A)= 0.11095
+  - f(C)= 0.37926
+  - f(G)= 0.38747
+  - f(T)= 0.12232
 . GTR relative rate parameters : 
-  A <-> C    1.08454
-  A <-> G    5.91794
-  A <-> T    0.48663
-  C <-> G    0.37378
-  C <-> T    3.61180
+  A <-> C    1.18996
+  A <-> G    5.80897
+  A <-> T    2.68204
+  C <-> G    0.41380
+  C <-> T    6.92590
   G <-> T    1.00000
 
 . Instantaneous rate matrix : 
   [A---------C---------G---------T------]
-  -1.19837   0.21041   0.91731   0.07066  
-   0.17334  -0.75569   0.05794   0.52441  
-   0.94583   0.07252  -1.16354   0.14519  
-   0.07778   0.70071   0.15501  -0.93349  
+  -1.97874   0.29471   1.46981   0.21422  
+   0.08621  -0.74411   0.10470   0.55319  
+   0.42086   0.10248  -0.60321   0.07987  
+   0.19431   1.71528   0.25302  -2.16262  
 
 
 
 . Run ID:				none
-. Random seed:				1464659149
+. Random seed:				1466140622
 . Subtree patterns aliasing:		no
 . Version:				20150415
-. Time used:				0h0m1s (1 seconds)
+. Time used:				0h0m8s (8 seconds)
 
  oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
  Suggested citations:
