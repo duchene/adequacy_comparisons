@@ -25,7 +25,7 @@ make.ml.als <- function(trees.file, log.file, N = 100, l = 1000, savetrees = F){
 			shape <- gsub(".*: ", "", shape)
 			shape <- as.numeric(gsub("\t", "", shape))
 			print(paste("Shape parameter:", shape))
-			rates = phangorn::discrete.gamma(shape, 4)
+			rates = phangorn:::discrete.gamma(shape, 4)
 			#print(paste("gamma rates", rates))
 		    sim_dat_all <- lapply(rates, function(x) simSeq(trees, l = round(l/4, 0), Q = qmat, bf = basef, rate = x))
 			sim[[i]] <- c(sim_dat_all[[1]], sim_dat_all[[2]], sim_dat_all[[3]], sim_dat_all[[4]])
@@ -43,7 +43,7 @@ make.ml.als <- function(trees.file, log.file, N = 100, l = 1000, savetrees = F){
                         shape <- gsub(".*: ", "", shape)
 			shape <- as.numeric(gsub("\t", "", shape))
 			print(paste("Shape parameter:", shape))
-                        rates = phangorn::discrete.gamma(shape, 4)
+                        rates = phangorn:::discrete.gamma(shape, 4)
 						sim_dat_all <- lapply(rates, function(x) simSeq(trees, l = round(l/4, 0), rate = x))
 						sim[[i]] <- c(sim_dat_all[[1]], sim_dat_all[[2]], sim_dat_all[[3]], sim_dat_all[[4]])
 			} else {
