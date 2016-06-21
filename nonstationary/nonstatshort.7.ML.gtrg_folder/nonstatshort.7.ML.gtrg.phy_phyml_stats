@@ -11,44 +11,44 @@
 . Initial tree: 			BioNJ
 . Model of nucleotides substitution: 	GTR
 . Number of taxa: 			19
-. Log-likelihood: 			-1595.64899
-. Unconstrained likelihood: 		-1546.13036
-. Parsimony: 				28
-. Tree size: 				0.02818
+. Log-likelihood: 			-7104.58935
+. Unconstrained likelihood: 		-4895.21379
+. Parsimony: 				1486
+. Tree size: 				4.37816
 . Discrete gamma model: 		Yes
   - Number of classes: 			4
-  - Gamma shape parameter: 		0.029
-  - Relative rate in class 1: 		0.00000 [freq=0.250000] 		
-  - Relative rate in class 2: 		0.00000 [freq=0.250000] 		
-  - Relative rate in class 3: 		0.00007 [freq=0.250000] 		
-  - Relative rate in class 4: 		3.99993 [freq=0.250000] 		
+  - Gamma shape parameter: 		1.047
+  - Relative rate in class 1: 		0.14621 [freq=0.250000] 		
+  - Relative rate in class 2: 		0.49041 [freq=0.250000] 		
+  - Relative rate in class 3: 		1.00736 [freq=0.250000] 		
+  - Relative rate in class 4: 		2.35602 [freq=0.250000] 		
 . Nucleotides frequencies:
-  - f(A)= 0.24258
-  - f(C)= 0.26926
-  - f(G)= 0.22732
-  - f(T)= 0.26084
+  - f(A)= 0.12342
+  - f(C)= 0.32847
+  - f(G)= 0.40447
+  - f(T)= 0.14363
 . GTR relative rate parameters : 
-  A <-> C   107.49393
-  A <-> G   110.56964
-  A <-> T    0.17898
-  C <-> G   16.28468
-  C <-> T   200.00000
+  A <-> C    1.29752
+  A <-> G    5.22148
+  A <-> T    2.14888
+  C <-> G    0.56286
+  C <-> T    5.51110
   G <-> T    1.00000
 
 . Instantaneous rate matrix : 
   [A---------C---------G---------T------]
-  -0.95855   0.51260   0.44513   0.00083  
-   0.46180  -1.45126   0.06556   0.92390  
-   0.47501   0.07766  -0.55729   0.00462  
-   0.00077   0.95373   0.00403  -0.95852  
+  -1.91255   0.28633   1.41886   0.20736  
+   0.10759  -0.79233   0.15295   0.53180  
+   0.43295   0.12421  -0.65366   0.09650  
+   0.17818   1.21617   0.27174  -1.66609  
 
 
 
 . Run ID:				none
-. Random seed:				1464659146
+. Random seed:				1466140127
 . Subtree patterns aliasing:		no
 . Version:				20150415
-. Time used:				0h0m1s (1 seconds)
+. Time used:				0h0m19s (19 seconds)
 
  oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
  Suggested citations:

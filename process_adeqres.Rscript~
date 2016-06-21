@@ -1,0 +1,13 @@
+fols <- grep("folder", dir(), value = T)
+sumres <- matrix(4, length(fols), dimnames = list("fols", c("multinomial.likelihood.p.value", "chisq.p.value", "consistency.index.p.value", "delta.p.value")))
+
+for(i in 1:length(fols)){
+      setwd(fols[i])
+      load("adeqres.Rdata")
+      sumres[i, 1] <- adeqres$multinomial.likelihood.p.value
+      sumres[i, 2] <- adeqres$chisq.p.value
+      sumres[i, 3] <- adeqres$consistency.index.p.value
+      if(length(grep("bayes", fols[i], value = T)) == 0) sumres[i, 4] <- adeqres$delta.p.value
+      setwd("..")
+}
+

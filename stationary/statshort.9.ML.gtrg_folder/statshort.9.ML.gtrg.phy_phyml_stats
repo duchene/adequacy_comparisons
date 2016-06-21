@@ -11,44 +11,44 @@
 . Initial tree: 			BioNJ
 . Model of nucleotides substitution: 	GTR
 . Number of taxa: 			20
-. Log-likelihood: 			-1720.73185
+. Log-likelihood: 			-1718.47748
 . Unconstrained likelihood: 		-1639.86229
-. Parsimony: 				46
-. Tree size: 				0.04719
+. Parsimony: 				45
+. Tree size: 				0.04607
 . Discrete gamma model: 		Yes
   - Number of classes: 			4
   - Gamma shape parameter: 		0.032
   - Relative rate in class 1: 		0.00000 [freq=0.250000] 		
   - Relative rate in class 2: 		0.00000 [freq=0.250000] 		
-  - Relative rate in class 3: 		0.00020 [freq=0.250000] 		
-  - Relative rate in class 4: 		3.99980 [freq=0.250000] 		
+  - Relative rate in class 3: 		0.00023 [freq=0.250000] 		
+  - Relative rate in class 4: 		3.99977 [freq=0.250000] 		
 . Nucleotides frequencies:
   - f(A)= 0.27705
   - f(C)= 0.23035
   - f(G)= 0.24675
   - f(T)= 0.24585
 . GTR relative rate parameters : 
-  A <-> C    1.01174
-  A <-> G    4.04627
-  A <-> T    1.58353
-  C <-> G    1.93381
-  C <-> T    6.69661
+  A <-> C    1.01061
+  A <-> G    4.05236
+  A <-> T    1.57869
+  C <-> G    1.92837
+  C <-> T    6.27598
   G <-> T    1.00000
 
 . Instantaneous rate matrix : 
   [A---------C---------G---------T------]
-  -0.81132   0.11666   0.49978   0.19488  
-   0.14031  -1.20329   0.23886   0.82412  
-   0.56115   0.22298  -0.90720   0.12307  
-   0.21961   0.77216   0.12352  -1.11529  
+  -0.83142   0.11941   0.51292   0.19909  
+   0.14362  -1.17917   0.24408   0.79147  
+   0.57590   0.22786  -0.92987   0.12611  
+   0.22435   0.74157   0.12657  -1.09249  
 
 
 
 . Run ID:				none
-. Random seed:				1464659473
+. Random seed:				1466136722
 . Subtree patterns aliasing:		no
 . Version:				20150415
-. Time used:				0h0m2s (2 seconds)
+. Time used:				0h0m1s (1 seconds)
 
  oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
  Suggested citations:
