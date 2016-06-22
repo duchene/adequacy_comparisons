@@ -1,5 +1,5 @@
 fols <- grep("folder", dir(), value = T)
-sumres <- matrix(4, length(fols), dimnames = list("fols", c("multinomial.likelihood.p.value", "chisq.p.value", "consistency.index.p.value", "delta.p.value")))
+sumres <- matrix(length(fols), 4, dimnames = list(fols, c("multinomial.likelihood.p.value", "chisq.p.value", "consistency.index.p.value", "delta.p.value"))
 
 for(i in 1:length(fols)){
       setwd(fols[i])
