@@ -1,23 +1,21 @@
-fols <- grep("folder", dir(), value = T)
-fols <- grep("ML|bayes", fols, value = T)
-sumres <- matrix(NA, length(fols), 9, dimnames = list(fols, c("stationary", "tree.length", "replicate", "estimation.method", "estimation.model", "multinomial.likelihood.p.value", "chisq.p.value", "consistency.index.p.value", "delta.p.value")))
 
-for(i in 1:length(fols)){
-      if(length(grep("nonstat", fols[i])) == 0){ sumres[i, 1] <- "stat" } else { sumres [i, 1] <- "nonstat" }
-      if(length(grep("long", fols[i])) == 0){ sumres[i, 2] <- "short" } else { sumres [i, 2] <- "long" }
-      breakfol <- strsplit(fols[i], split = "[.]")[[1]]
+csvs <- dir(pattern = 'Lboot.+.cvs')
+sumres <- matrix(NA, length(csvs), 9, dimnames = list(csvs, c("stationary", "tree.length", "replicate", "estimation.method", "estimation.model", "multinomial.likelihood.p.value", "chisq.p.value", "consistency.index.p.value", "delta.p.value")))
+
+for(i in 1:length(csvs)){
+      if(length(grep("nonstat", csvs[i])) == 0){ sumres[i, 1] <- "stat" } else { sumres[i, 1] <- "nonstat" }
+      if(length(grep("long", csvs[i])) == 0){ sumres[i, 2] <- "short" } else { sumres[i, 2] <- "long" }
+      breakfol <- strsplit(csvs[i], split = "[.]")[[1]]
       sumres[i, 3:4] <- breakfol[2:3]
-      sumres[i, 5] <- gsub("_folder", "", breakfol[4])
-      setwd(fols[i])
-      load("adeqres.Rdata")
-      if(class(adeqres) == "try-error"){ 
-      		setwd("..")
-		next
-      }	
-      sumres[i, 6] <- adeqres$multinomial.likelihood.p.value
-      sumres[i, 7] <- adeqres$chisq.p.value
-      sumres[i, 8] <- adeqres$consistency.index.p.value
-      if(length(grep("bayes", fols[i], value = T)) == 0) sumres[i, 9] <- adeqres$delta.p.value
-      setwd("..")
+      sumres[i, 5] <- gsub("[.]cvs", "", breakfol[4])
+      
+      pvalsdat <- read.csv(grep(paste0("out_", i, "_"), dir(), value = T))
+      multlikdistr <- fitdistr(pvalsdat[2:nrow(pvalsdat), 1], "normal")
+      sumres[i, 6] <- 1 - pnorm(pvalsdat[1, 1], multlikdistr[[1]][1], multlikdistr[[1]][2])
+      chisqdistr <- fitdistr(pvalsdat[2:nrow(pvalsdat), 3], "normal")
+      sumres[i, 7] <- 1 - pnorm(pvalsdat[1, 3], chisqdistr[[1]][1], chisqdistr[[1]][2])
+      deltadistr <- fitdistr(pvalsdat[2:nrow(pvalsdat), 2], "normal")
+      sumres[i, 9] <- 1 - pnorm(pvalsdat[1, 2], deltadistr[[1]][1], deltadistr[[1]][2])      
+      
 }
 

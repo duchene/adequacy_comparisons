@@ -1,0 +1,23 @@
+fols <- grep("folder", dir(), value = T)
+fols <- grep("ML|bayes", fols, value = T)
+sumres <- matrix(NA, length(fols), 9, dimnames = list(fols, c("stationary", "tree.length", "replicate", "estimation.method", "estimation.model", "multinomial.likelihood.p.value", "chisq.p.value", "consistency.index.p.value", "delta.p.value")))
+
+for(i in 1:length(fols)){
+      if(length(grep("nonstat", fols[i])) == 0){ sumres[i, 1] <- "stat" } else { sumres [i, 1] <- "nonstat" }
+      if(length(grep("long", fols[i])) == 0){ sumres[i, 2] <- "short" } else { sumres [i, 2] <- "long" }
+      breakfol <- strsplit(fols[i], split = "[.]")[[1]]
+      sumres[i, 3:4] <- breakfol[2:3]
+      sumres[i, 5] <- gsub("_folder", "", breakfol[4])
+      setwd(fols[i])
+      load("adeqres.Rdata")
+      if(class(adeqres) == "try-error"){ 
+      		setwd("..")
+		next
+      }	
+      sumres[i, 6] <- adeqres$multinomial.likelihood.p.value
+      sumres[i, 7] <- adeqres$chisq.p.value
+      sumres[i, 8] <- adeqres$consistency.index.p.value
+      if(length(grep("bayes", fols[i], value = T)) == 0) sumres[i, 9] <- adeqres$delta.p.value
+      setwd("..")
+}
+
